@@ -246,3 +246,5 @@ Patient_generated_binary_only_mutliple_gaussian/Generated_binary_file_for_patien
 Patient_generated_binary_only_mutliple_gaussian/Generated_binary_file_for_patient_N°049.csv
 Load_covid_data_and_ML.ipynb
 t4_int.npy
+*.csv
+*.png
