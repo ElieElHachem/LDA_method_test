@@ -89,8 +89,8 @@ def reverse_binary_matrix(list_of_iteration, dataframe_to_match,column):
 
 #Generation of Patient
 size_list = 10000 #Number of cell
-proba_tupple = (0.45, 0.15,0.05,0.35) #Probability of phenotypes 1 
-proba_tupple_2 = (0.075, 0.03,0.5,0.35) #Probability fro phenotype 2
+proba_tupple = (0.85, 0.05,0.05,0.05) #Probability of phenotypes 1 
+proba_tupple_2 = (0.05, 0.05,0.05,0.85) #Probability fro phenotype 2
 
 
 
@@ -103,7 +103,7 @@ cutting_tree = 1
 
 n_sample = 5000 #Number of cell subset randomly chosen
 strating_point = 0
-number_of_cluster = 2 #Number_of_cluster_for_k_means
+number_of_cluster = 3 #Number_of_cluster_for_k_means
 max_val = 0.01
 
 #Generate patients
@@ -159,7 +159,9 @@ for dir in dirs:
                                
                 #data =  np.log10(np.maximum(row_data.sample(n=n_sample, random_state=42),max_val))
                 data = row_data.sample(n=n_sample, random_state=42)
-                subset_data = stats.zscore(data)
+                #subset_data = stats.zscore(data)
+                subset_data = data
+
                 print(subset_data.shape)
                 #time_start = time.time()
                 #tsne = TSNE(n_components=2, verbose=1, perplexity=40, n_iter=300)
@@ -186,7 +188,9 @@ for dir in dirs:
                 row_data_to_compare = pd.read_csv(file, index_col=0)
                 data_to_compare = row_data_to_compare.sample(n=n_sample, random_state=42)
                 #Apply Tsne with 2 components on datas
-                subset_data_unref = stats.zscore(data_to_compare)
+                #subset_data_unref = stats.zscore(data_to_compare)
+                subset_data_unref = data_to_compare
+
                 print(subset_data_unref.shape)
                 #time_start = time.time()
                 #tsne = TSNE(n_components=n_comp, verbose=1, perplexity=40, n_iter=300)
